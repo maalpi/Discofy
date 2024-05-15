@@ -1,5 +1,6 @@
 import React from 'react';
-import { Credentials } from '../credentials/Credentials';
+import { Credentials } from '../../credentials/Credentials';
+import { ContainerStyled } from './styled';
 
 const Login: React.FC = () => {
   const CLIENT_ID = Credentials().ClientId;
@@ -14,14 +15,14 @@ const Login: React.FC = () => {
   ].join('%20'); // Os escopos devem ser separados por "%20" que é o código para espaço no URL
 
   return (
-    <div className="App">
-      <h1>Spotify CD</h1>
+    <ContainerStyled>
+      <h1>Disco.fy</h1>
       <a
         href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPES}`}
       >
-        Login to Spotify
+        Login Spotify
       </a>
-    </div>
+    </ContainerStyled>
   );
 };
 

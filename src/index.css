@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
-body {
+html, body, #root {
   font-family: sans-serif;
+  height: 100%;
 }
