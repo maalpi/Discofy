@@ -3,7 +3,16 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Callback from './pages/Callback';
 import TopArtists from './pages/TopArtists/TopArtists';
+import PoliticaPrivacidade from './pages/Privacidade/Politica';
+import { createGlobalStyle } from 'styled-components';
+import './images/Milker.otf';
 
+const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Milker';
+    src: url('./images/Milker.otf') format('opentype');
+  }
+`;
 const App: React.FC = () => {
   return (
     <Router>
@@ -11,6 +20,7 @@ const App: React.FC = () => {
         <Route path="/" element={<Login />} />
         <Route path="/callback" element={<Callback />} />
         <Route path="/top-artists" element={<TopArtists />} />
+        <Route path="/privacy" element={<PoliticaPrivacidade />} />
       </Routes>
     </Router>
   );

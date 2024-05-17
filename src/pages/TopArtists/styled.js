@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import CDDark from '../../images/versoCDDARK.svg'; // Importe a imagem se necessário
+import MilkerFont from '../../images/Milker.otf';
 
 export const ContainerStyled = styled.div`
   width: 100%;
@@ -68,5 +70,99 @@ export const ContainerStyled = styled.div`
 
   .tempos {
     width: 75%;
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 25%;
+    margin-bottom: 5%;
+    flex-direction: column;
+  }
+`;
+
+export const ContainerCD = styled.div`
+  @font-face {
+    font-family: 'Milker';
+    src: url(${MilkerFont}) format('opentype');
+  }
+  min-width: 61vh;
+  min-height: 52vh;
+  max-width: 80vw;
+  max-height: 80vh;
+  background-image: url(${CDDark});
+  background-size: cover;
+  background-position: center;
+  position: relative;
+
+  h1 {
+    position: absolute;
+    top: 7%;
+    left: 16%;
+    font-size: 235%;
+    width: 410px;
+    height: 60px;
+    margin: 0;
+  }
+
+  ul {
+    position: absolute;
+    text-align: left;
+    top: 35%;
+    left: 20%;
+    list-style-type: decimal;
+    color: red;
+    font-size: 82%;
+    margin: 0;
+  }
+
+  h2 {
+    margin: 0% 0% 1% -8%;
+    color: #fff;
+    font-weight: 400;
+    font-family: 'Milker';
+  }
+
+  .TimeRight {
+    top: 0%;
+    right: 50%;
+    transform: translate(40%, 105%) rotate(270deg);
+    color: red;
+    font-weight: 850;
+    font-size: 265%;
+    text-align: left;
+  }
+
+  @media (max-width: 1600px) {
+    .TimeRight {
+      font-size: 375%;
+      transform: translate(40%, 125%) rotate(270deg);
+    }
+  }
+
+  @media (max-width: 767px) {
+    min-width: 87vw;
+    min-height: 78vw;
+    max-width: 35vw;
+    max-height: 35vw;
+
+    ul {
+      font-family: 'Roboto';
+      top: 30%;
+      font-size: 12px;
+    }
+
+    h2 {
+      margin: 0% 0% 1% -8.5%;
+      font-family: 'Roboto';
+    }
+
+    h1 {
+      width: 200px;
+      height: 60px;
+      font-size: 30px;
+    }
+    .TimeRight {
+      font-size: 175%;
+      transform: translate(40%, 125%) rotate(270deg);
+    }
   }
 `;

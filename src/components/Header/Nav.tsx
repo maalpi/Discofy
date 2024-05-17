@@ -17,16 +17,14 @@ const Navbar = () => {
   };
   return (
     <Nav>
-      <Logo href="">
-        Disco<span>fy</span>
-      </Logo>
+      <Logo href="">Discofy</Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink href="">Politica Privacidade</MenuLink>
+        <MenuLink href="/privacy">Politica Privacidade</MenuLink>
         <MenuLink href="">Contact</MenuLink>
         <MenuLink onClick={logout}>Logout</MenuLink>
       </Menu>
@@ -67,8 +65,9 @@ const Logo = styled.a`
   padding: 1rem 0;
   color: #7b7fda;
   text-decoration: none;
-  font-weight: 800;
-  font-size: 1.7rem;
+  font-weight: 500;
+  font-size: 2.7rem;
+  font-family: 'Honk', sans-serif; /* Nome da fonte importada */
 
   span {
     font-weight: 300;
