@@ -170,7 +170,9 @@ const TopArtists: React.FC = () => {
               12 Months
             </button>
           </div>
-          <p className="opc">ESCOLHA UM TEMA (EM BREVE):</p>
+          <p className="opc">
+            ESCOLHA UM TEMA <span id="breve">(EM BREVE)</span>:
+          </p>
           <div className="tempos">
             <button>Futuristic</button>
             <button>Retro</button>

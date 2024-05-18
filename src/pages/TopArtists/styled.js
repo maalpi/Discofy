@@ -21,6 +21,11 @@ export const ContainerStyled = styled.div`
     font-size: 1.5vw;
     margin: 1vw 0vw 0.3vw 0vw;
   }
+
+  #id {
+    color: red;
+    font-weight: 600;
+  }
   button {
     text-decoration: none;
     position: relative;
