@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'Milker';
+  src: url('../images/Milker.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'IntegralCFBOLD';
+  src: url('../images/Fontspring-DEMO-integralcf-bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'IntegralCF';
+  src: url('../images/Fontspring-DEMO-integralcf-regular.otf') format('opentype');
+}

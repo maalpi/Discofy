@@ -4,7 +4,7 @@ import { ContainerStyled } from './styled';
 
 const Login: React.FC = () => {
   const CLIENT_ID = Credentials().ClientId;
-  const REDIRECT_URI = 'http://localhost:3000/callback';
+  const REDIRECT_URI = 'https://discofy.netlify.app/callback';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
   const SCOPES = [
@@ -14,6 +14,7 @@ const Login: React.FC = () => {
     'playlist-modify-public',
   ].join('%20'); // Os escopos devem ser separados por "%20" que é o código para espaço no URL
 
+  window.localStorage.removeItem('token');
   return (
     <ContainerStyled>
       <h1>Disco.fy</h1>

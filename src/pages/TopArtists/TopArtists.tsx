@@ -4,8 +4,6 @@ import { ContainerStyled, ContainerCD } from './styled';
 import Navbar from '../../components/Header/Nav';
 import { toPng } from 'html-to-image';
 
-import CDDark from '../../images/versoCDDARK.svg';
-
 interface Artist {
   id: string;
   name: string;
@@ -42,6 +40,7 @@ const TopArtists: React.FC = () => {
   const [topTracks, setTopTracks] = useState<Track[]>([]);
   const [topArtists, setTopArtists] = useState<Artist[]>([]);
   const [userName, setUserName] = useState<string>('');
+  const [user, setUser] = useState<string>('');
   const token = window.localStorage.getItem('token');
   const [time, setTime] = useState<string>('LAST MONTH');
   const [timeRange, setTimeRange] = useState<string>('short_term');
@@ -85,6 +84,7 @@ const TopArtists: React.FC = () => {
       .then((response) => response.json())
       .then((data) => {
         setUserName(data.display_name || '');
+        setUser(data.display_name || '');
       })
       .catch((error) => console.error('Error fetching user profile:', error));
   }, [token, timeRange]);
@@ -109,7 +109,7 @@ const TopArtists: React.FC = () => {
     toPng(printRef.current, { cacheBust: true })
       .then((dataUrl) => {
         const link = document.createElement('a');
-        link.download = 'my-image.png';
+        link.download = 'myCD.png';
         link.href = dataUrl;
         link.click();
       })
@@ -123,13 +123,21 @@ const TopArtists: React.FC = () => {
       <Navbar />
       <ContainerStyled>
         <div className="child">
-          <ContainerCD ref={printRef}>
+          <ContainerCD ref={printRef} id="cd">
             <h1>{userName}</h1>
             <ul>
               <h2>SONGS</h2>
-              {topTracks.map((track) => (
-                <li key={track.id}>{track.name}</li>
+              {topTracks.map((track, index) => (
+                <li key={track.id}>
+                  <span id="musica">{`"${track.name
+                    .replace(/\s*\([^)]*\)|\-.*/g, '')
+
+                    .toUpperCase()}"`}</span>
+                </li>
               ))}
+              <p id="oficial">
+                OFICIAL SOUNDTRACK BY <span>{user}</span>
+              </p>
             </ul>
             {isVisible && (
               <div className="TimeRight">
@@ -140,8 +148,8 @@ const TopArtists: React.FC = () => {
           <button onClick={handleDownloadImage}>Download as PNG</button>
         </div>
         <div className="child right">
-          <h1>Customize</h1>
-          <p>inclua os artista de:</p>
+          <h1>CUSTOMIZE</h1>
+          <p className="opc">TEMPO:</p>
           <div className="tempos">
             <button
               onClick={() => handleButtonClick('short_term')}
@@ -162,14 +170,15 @@ const TopArtists: React.FC = () => {
               12 Months
             </button>
           </div>
-          <p>escolha um tema:</p>
+          <p className="opc">ESCOLHA UM TEMA (EM BREVE):</p>
           <div className="tempos">
             <button>Futuristic</button>
             <button>Retro</button>
             <button>Modern</button>
           </div>
-          <p>nome do disco:</p>
+          <p className="opc">NOME DO DISCO:</p>
           <input
+            className="input"
             value={userName}
             onChange={(e) => setUserName(e.target.value)}
           ></input>

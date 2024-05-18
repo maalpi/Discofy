@@ -7,12 +7,14 @@ export const ContainerStyled = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #212121;
 
   h1 {
     font-size: 48px;
     margin-bottom: 1%;
     font-family: 'Roboto';
     font-weight: 500;
+    color: #fff;
   }
 
   p {
@@ -23,6 +25,7 @@ export const ContainerStyled = styled.div`
     color: #121212;
     font-weight: 300;
     font-family: 'Roboto';
+    color: #fff;
   }
 
   a {

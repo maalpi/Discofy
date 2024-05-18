@@ -5,7 +5,7 @@ import Callback from './pages/Callback';
 import TopArtists from './pages/TopArtists/TopArtists';
 import PoliticaPrivacidade from './pages/Privacidade/Politica';
 import { createGlobalStyle } from 'styled-components';
-import './images/Milker.otf';
+import './styles/fonts.css';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {

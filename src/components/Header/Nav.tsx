@@ -17,7 +17,7 @@ const Navbar = () => {
   };
   return (
     <Nav>
-      <Logo href="">Discofy</Logo>
+      <Logo href="/top-artists">Discofy</Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
         <span />
@@ -39,12 +39,12 @@ const MenuLink = styled.a`
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  color: purple;
+  color: #fff;
   transition: all 0.3s ease-in;
   font-size: 0.9rem;
 
   &:hover {
-    color: #7b7fda;
+    color: #ff0095;
   }
 `;
 
@@ -54,7 +54,7 @@ const Nav = styled.div`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background: white;
+  background: #212121;
   position: absolute;
   top: 0;
   left: 0;
