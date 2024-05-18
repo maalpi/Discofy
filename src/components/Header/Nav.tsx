@@ -16,7 +16,7 @@ const Navbar = () => {
     navigate('/');
   };
   return (
-    <Nav>
+    <Nav style={{ zIndex: 1000 }}>
       <Logo href="/top-artists">Discofy</Logo>
       <Hamburger onClick={() => setIsOpen(!isOpen)}>
         <span />
@@ -42,7 +42,7 @@ const MenuLink = styled.a`
   color: #fff;
   transition: all 0.3s ease-in;
   font-size: 0.9rem;
-
+  z-index: 1000;
   &:hover {
     color: #ff0095;
   }
@@ -50,6 +50,7 @@ const MenuLink = styled.a`
 
 const Nav = styled.div`
   padding: 0 2rem;
+  z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,6 +81,7 @@ const Menu = styled.div<MenuProps>`
   justify-content: space-between;
   align-items: center;
   position: relative;
+  z-index: 1000;
 
   @media (max-width: 768px) {
     overflow: hidden;
@@ -92,7 +94,7 @@ const Menu = styled.div<MenuProps>`
 
 const Hamburger = styled.div`
   display: none;
-
+  z-index: 1000;
   flex-direction: column;
   cursor: pointer;
 

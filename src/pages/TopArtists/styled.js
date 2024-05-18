@@ -7,6 +7,7 @@ export const ContainerStyled = styled.div`
   height: 100%;
   display: flex;
   background-color: #212121;
+  z-index: -1;
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
