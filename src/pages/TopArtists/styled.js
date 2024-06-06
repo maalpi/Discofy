@@ -26,7 +26,7 @@ export const ContainerStyled = styled.div`
     color: red;
     font-weight: 600;
   }
-  button {
+  .button1 {
     text-decoration: none;
     position: relative;
     margin: 2% 3% 2% 0%;
@@ -49,18 +49,77 @@ export const ContainerStyled = styled.div`
     transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
-  button:hover {
+  .button1:hover {
     box-shadow: 0 0 0 12px transparent;
     color: #fff;
     background-color: purple;
     border-radius: 12px;
   }
 
-  button:active {
+  .button1:active {
     scale: 0.95;
     color: #fff;
     background-color: purple;
     box-shadow: 0 0 0 4px greenyellow;
+  }
+
+  .btn {
+    --color: #00a97f;
+    --color2: rgb(10, 25, 30);
+    width: 12vw;
+    padding: 0.8em 1.75em;
+    margin-top: 0.5em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: 0.3px solid var(--color);
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 300;
+    font-size: 17px;
+    font-family: 'Roboto', 'Segoe UI', sans-serif;
+    text-transform: uppercase;
+    color: var(--color);
+  }
+
+  .btn::after,
+  .btn::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: 0.5s ease-out;
+    background-color: var(--color);
+  }
+
+  .btn::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+  }
+
+  .btn:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+  }
+
+  .btn:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+  }
+
+  .btn:hover {
+    color: var(--color2);
+  }
+
+  .btn:active {
+    filter: brightness(0.7);
+    transform: scale(0.98);
   }
 
   .active {
@@ -132,17 +191,38 @@ export const ContainerStyled = styled.div`
     .input {
       padding: 4vw;
       font-size: 4vw;
+      width: 42vw;
+    }
+
+    .btn {
+      width: 28vw;
+    }
+
+    .button1 {
+      width: 20vw;
     }
   }
 
   @media (max-width: 704px) {
     margin-top: 20%;
-    height: 100%;
+    height: 120%;
     margin-bottom: 5%;
+
+    .btn {
+      width: 52vw;
+    }
+
+    .button1 {
+      width: 48vw;
+    }
   }
 
   @media (max-width: 380px) {
-    height: 140%;
+    height: 145%;
+
+    .btn {
+      width: 59vw;
+    }
   }
 `;
 

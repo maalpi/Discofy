@@ -19,6 +19,7 @@ interface Track {
 }
 
 const TopArtists: React.FC = () => {
+  const obj = new Date();
   const navigate = useNavigate();
   const isAuthenticated = !!window.localStorage.getItem('token');
   const printRef = useRef<HTMLDivElement>(null);
@@ -118,6 +119,54 @@ const TopArtists: React.FC = () => {
       });
   };
 
+  const handleSaveOnSpotify = async () => {
+    if (!token) return;
+
+    try {
+      // Step 1: Create a new playlist
+      const createPlaylistResponse = await fetch(
+        `https://api.spotify.com/v1/me/playlists`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: `${time.toLowerCase()} top tracks - ${obj
+              .toLocaleString('en-US', { month: 'short' })
+              .toLowerCase()} ${obj.getFullYear()}`,
+            description: 'created by Discofy - (discofy.netlify.app)',
+            public: false,
+          }),
+        },
+      );
+
+      const createPlaylistData = await createPlaylistResponse.json();
+      const playlistId = createPlaylistData.id;
+
+      // Step 2: Add tracks to the new playlist
+      const trackUris = topTracks.map((track) => `spotify:track:${track.id}`);
+
+      await fetch(`https://api.spotify.com/v1/playlists/${playlistId}/tracks`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          uris: trackUris,
+        }),
+      });
+
+      // Step 3: Open the playlist in a new tab
+      const playlistUrl = `https://open.spotify.com/playlist/${playlistId}`;
+      window.open(playlistUrl, '_blank');
+    } catch (error) {
+      console.error('Error saving playlist on Spotify:', error);
+    }
+  };
+
   return (
     <>
       <Navbar />
@@ -145,7 +194,12 @@ const TopArtists: React.FC = () => {
               </div>
             )}
           </ContainerCD>
-          <button onClick={handleDownloadImage}>Download as PNG</button>
+          <button className="btn" onClick={handleDownloadImage}>
+            Download Image
+          </button>
+          <button className="btn" onClick={handleSaveOnSpotify}>
+            Save in Spotify
+          </button>
         </div>
         <div className="child right">
           <h1>CUSTOMIZE</h1>
@@ -153,19 +207,25 @@ const TopArtists: React.FC = () => {
           <div className="tempos">
             <button
               onClick={() => handleButtonClick('short_term')}
-              className={activeButton === 'short_term' ? 'active' : ''}
+              className={`button1 ${
+                activeButton === 'short_term' ? 'active' : ''
+              }`}
             >
               1 Month
             </button>
             <button
               onClick={() => handleButtonClick('medium_term')}
-              className={activeButton === 'medium_term' ? 'active' : ''}
+              className={`button1 ${
+                activeButton === 'medium_term' ? 'active' : ''
+              }`}
             >
               6 Months
             </button>
             <button
               onClick={() => handleButtonClick('long_term')}
-              className={activeButton === 'long_term' ? 'active' : ''}
+              className={`button1 ${
+                activeButton === 'long_term' ? 'active' : ''
+              }`}
             >
               12 Months
             </button>
@@ -174,9 +234,9 @@ const TopArtists: React.FC = () => {
             ESCOLHA UM TEMA <span id="breve">(EM BREVE)</span>:
           </p>
           <div className="tempos">
-            <button>Futuristic</button>
-            <button>Retro</button>
-            <button>Modern</button>
+            <button className="button1">Futuristic</button>
+            <button className="button1">Retro</button>
+            <button className="button1">Modern</button>
           </div>
           <p className="opc">NOME DO DISCO:</p>
           <input
