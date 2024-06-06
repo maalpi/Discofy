@@ -24,9 +24,9 @@ const Navbar = () => {
         <span />
       </Hamburger>
       <Menu isOpen={isOpen}>
-        <MenuLink href="/privacy">Politica Privacidade</MenuLink>
-        <MenuLink href="">Contact</MenuLink>
-        <MenuLink onClick={logout}>Logout</MenuLink>
+        <MenuLink href="/privacy">privacy policy</MenuLink>
+        <MenuLink href="/contact">contact</MenuLink>
+        <MenuLink onClick={logout}>logout</MenuLink>
       </Menu>
     </Nav>
   );

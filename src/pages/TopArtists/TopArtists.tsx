@@ -203,7 +203,7 @@ const TopArtists: React.FC = () => {
         </div>
         <div className="child right">
           <h1>CUSTOMIZE</h1>
-          <p className="opc">TEMPO:</p>
+          <p className="opc">TIME PERIOD :</p>
           <div className="tempos">
             <button
               onClick={() => handleButtonClick('short_term')}
@@ -231,14 +231,14 @@ const TopArtists: React.FC = () => {
             </button>
           </div>
           <p className="opc">
-            ESCOLHA UM TEMA <span id="breve">(EM BREVE)</span>:
+            THEME <span id="breve">(EM BREVE)</span> :
           </p>
           <div className="tempos">
             <button className="button1">Futuristic</button>
             <button className="button1">Retro</button>
             <button className="button1">Modern</button>
           </div>
-          <p className="opc">NOME DO DISCO:</p>
+          <p className="opc">CD NAME :</p>
           <input
             className="input"
             value={userName}

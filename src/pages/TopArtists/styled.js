@@ -29,6 +29,7 @@ export const ContainerStyled = styled.div`
   .button1 {
     text-decoration: none;
     position: relative;
+    width: 9vw;
     margin: 2% 3% 2% 0%;
     align-items: center;
     gap: 5px;

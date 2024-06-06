@@ -6,6 +6,8 @@ const Login: React.FC = () => {
   const CLIENT_ID = Credentials().ClientId;
   const REDIRECT_URI = 'https://discofy.netlify.app/callback';
   const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
+  // const REDIRECT_URI = 'http://localhost:3000/callback';
+  // const AUTH_ENDPOINT = 'https://accounts.spotify.com/authorize';
   const RESPONSE_TYPE = 'token';
   const SCOPES = [
     'user-read-recently-played',
